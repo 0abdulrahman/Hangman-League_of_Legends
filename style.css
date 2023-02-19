@@ -1,0 +1,487 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    position: relative;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    user-select: none
+}
+
+.status {
+    background-color: #e9e9e9;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Tahoma, Helvetica, sans-serif;
+    background-color: #8a2be2;
+    font-weight: bold;
+}
+
+.status > * {
+    color: #fff;
+    padding: 10px 20px;
+}
+
+.status p span {
+    color: #ffff00;
+    text-transform: uppercase;
+
+}
+
+.container {
+    background-color: #e9e9e9;
+    max-width: 1200px;
+    height: 600px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.drawing {
+    flex: 1;
+    height: 80%;
+    position: relative;
+}
+
+.drawing .hang {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: calc(50% - 150px);
+}
+
+.drawing .hang .base {
+    display: none;
+    width: 100px;
+    height: 100%;
+    border-bottom: 4px solid #000;
+}
+
+.drawing .hang .pillar {
+    display: none;
+    align-self: flex-end;
+    height: 450px;
+    margin-left: -50px;
+    width: 4px;
+    background-color: #000;
+}
+
+.drawing .hang .carrier {
+    display: none;
+    align-self: flex-end;
+    margin-bottom: 420px;
+    width: 120px; height: 4px;
+    background-color: #000;
+}
+
+.drawing .hang .rope {
+    display: none;
+    align-self: flex-start;
+    background-color: #000;
+    width: 2px;
+    height: 120px;
+    margin-top: 56px;
+    position: relative;
+}
+
+.drawing .hang .rope::after {
+    position: absolute;
+    top: 120px;
+    left: -6px;
+    content: "";
+    width: 10px;
+    height: 5px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.drawing .human {
+    display: none;
+    height: 300px;
+    position: absolute;
+    top: 20px; left: 50%;
+}
+
+.drawing .human .head {
+    height: 70px;
+    width: 70px;
+    background-color: #e9e9e9;
+    margin: 90px 0 0 -10px;
+    border: 3px solid #000;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.drawing .human .body {
+    height: 160px;
+    width: 3px;
+    background-color: #000;
+    margin-left: 23px;
+}
+
+.drawing .human .hands {
+    position: relative
+}
+
+.drawing .human .hands .right-hand {
+    position: absolute;
+    display: inline-block;
+    width: 50px;
+    height: 3px;
+    background-color: #000;
+    top: 30px;
+    left: 23px;
+    transform: rotate(-5deg);
+    -webkit-transform: rotate(-5deg);
+    -moz-transform: rotate(-5deg);
+    -ms-transform: rotate(-5deg);
+    -o-transform: rotate(-5deg);
+}
+
+.drawing .human .hands .right-hand::after {
+    content: "";
+    position: absolute;
+    top: -16px;
+    left: 0;
+    background-color: #000;
+    width: 55px;
+    height: 3px;
+    transform: rotate(35deg);
+    -webkit-transform: rotate(35deg);
+    -moz-transform: rotate(35deg);
+    -ms-transform: rotate(35deg);
+    -o-transform: rotate(35deg);
+}
+
+.drawing .human .hands .left-hand {
+    position: absolute;
+    display: inline-block;
+    width: 50px;
+    height: 3px;
+    background-color: #000;
+    top: 30px;
+    right: 34px;
+    transform: rotate(5deg);
+    -webkit-transform: rotate(5deg);
+    -moz-transform: rotate(5deg);
+    -ms-transform: rotate(5deg);
+    -o-transform: rotate(5deg);
+}
+
+.drawing .human .hands .left-hand::after {
+    content: "";
+    position: absolute;
+    top: -16px;
+    right: 0;
+    background-color: #000;
+    width: 55px;
+    height: 3px;
+    transform: rotate(-35deg);
+    -webkit-transform: rotate(-35deg);
+    -moz-transform: rotate(-35deg);
+    -ms-transform: rotate(-35deg);
+    -o-transform: rotate(-35deg);
+}
+
+.drawing .human .legs {
+    position: relative;
+}
+
+.drawing .human .legs::before {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 3px;
+    background-color: #000;
+    top: 18px;
+    left: 17px;
+    transform: rotate(40deg);
+    -webkit-transform: rotate(40deg);
+    -moz-transform: rotate(40deg);
+    -ms-transform: rotate(40deg);
+    -o-transform: rotate(40deg);
+}
+
+.drawing .human .legs::after {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 3px;
+    background-color: #000;
+    top: 18px;
+    right: 27px;
+    transform: rotate(-40deg);
+    -webkit-transform: rotate(-40deg);
+    -moz-transform: rotate(-40deg);
+    -ms-transform: rotate(-40deg);
+    -o-transform: rotate(-40deg);
+}
+
+.letters {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 0 50px;
+}
+
+.letters span {
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 30px;
+    background-color: #2227F0;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.2s;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -ms-transition: 0.2s;
+    -o-transition: 0.2s;
+}
+
+.letters span:hover {
+    background-color: #CD23FA;
+}
+
+.letters span.disabled {
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+.attempts {
+    background-color: #340f57;
+    color: #fff;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+}
+
+.attempts p {
+    font-weight: bold;
+}
+
+.attempts .spans { 
+    display: flex;
+    gap: 10px;
+}
+
+.attempts .spans span {
+    background-color: #00d812;
+    height: 20px;
+    width: 100px;
+    transform: skewX(-30deg);
+    -webkit-transform: skewX(-30deg);
+    -moz-transform: skewX(-30deg);
+    -ms-transform: skewX(-30deg);
+    -o-transform: skewX(-30deg);
+}
+
+.attempts .spans span.disabled {
+    background-color: #ff0000;
+}
+.guessed {
+    background-color: #8a2be2;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px
+}
+
+.guessed span {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 40px;
+    background-color: #fff;
+    border-bottom: 5px solid #2227F0;
+}
+
+.guessed span.space {
+    width: 20px;
+    background-color: white;
+    border: none;
+    height: 5px;
+    padding: 0;
+    margin: 0 20px;
+}
+
+/* -------------------------- lose -------------------------- */
+.lose-alert-bg::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #000000bd;
+    z-index: 1;
+}
+
+.lose-alert {
+    min-width: 50%;
+    min-height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'tahoma', sans-serif;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    z-index: 2;
+}
+
+.lose-alert p {
+    color: #ff0000;
+    font-size: 30px;
+    text-shadow: 0 0 10px #ff0000;
+}
+
+.lose-alert p span {
+    display: block;
+    font-size: 100px;
+    font-weight: bold;
+}
+.lose-alert button {
+    background-color: #8a2be2;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    padding: 15px 40px;
+    cursor: pointer;
+    transition: 0.2s;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -ms-transition: 0.2s;
+    -o-transition: 0.2s;
+}
+
+.lose-alert button:hover {
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+}
+
+.lose-alert > span {
+    color: #fff;
+    font-size: 20px;
+}
+
+/* ---------------------------- win -------------------------- */
+.win-alert-bg::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #000000bd;
+    z-index: 1;
+}
+
+.win-alert {
+    min-width: 50%;
+    min-height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    z-index: 2;
+}
+
+.win-alert p {
+    color: #00ff15;
+    font-size: 30px;
+    text-shadow: 0 0 10px #00ff15;
+}
+
+.win-alert p span {
+    display: block;
+    font-size: 100px;
+    font-weight: bold;
+}
+.win-alert button {
+    background-color: #8a2be2;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    padding: 15px 40px;
+    cursor: pointer;
+    transition: 0.2s;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -ms-transition: 0.2s;
+    -o-transition: 0.2s;
+}
+
+.win-alert button:hover {
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+}
+
+.win-alert > span {
+    color: #fff;
+    font-size: 20px;
+}
+
+/* ----------------- attempts punishment -------------------- */
+.drawing.attempt-4 .base,
+.drawing.attempt-4 .pillar {
+    display: inline-block;
+}
+
+.drawing.attempt-3 .carrier {
+    display: block;
+}
+
+.drawing.attempt-2 .rope {
+    display: block;
+}
+
+.drawing.attempt-1 .human {
+    display: block;
+}
