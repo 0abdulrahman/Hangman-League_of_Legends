@@ -16,6 +16,7 @@ body {
     max-width: 1200px;
     margin: auto;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     font-family: Tahoma, Helvetica, sans-serif;
@@ -28,8 +29,14 @@ body {
     padding: 10px 20px;
 }
 
+.status p {
+    background-color: #340f57;
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+}
 .status p span {
-    color: #ffff00;
+    color: #00d812;
     text-transform: uppercase;
 
 }
