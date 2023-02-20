@@ -44,12 +44,29 @@ body {
 .container {
     background-color: #e9e9e9;
     max-width: 1200px;
-    height: 600px;
+    height: calc(100vh - 281px);
     margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
+}
+
+.container.wrong-flash::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #ff0000;
+    opacity: 0.5;
+    z-index: 1;
+    transition: 0.2s;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -ms-transition: 0.2s;
+    -o-transition: 0.2s;
 }
 
 .drawing {
@@ -59,18 +76,21 @@ body {
 }
 
 .drawing .hang {
-    height: 100%;
     display: flex;
     justify-content: center;
     position: absolute;
-    top: 0;
-    left: calc(50% - 150px);
+    top: 50%;
+    left: 100px;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
 }
 
 .drawing .hang .base {
     display: none;
     width: 100px;
-    height: 100%;
     border-bottom: 4px solid #000;
 }
 
@@ -93,11 +113,11 @@ body {
 
 .drawing .hang .rope {
     display: none;
-    align-self: flex-start;
+    align-self: flex-end;
     background-color: #000;
     width: 2px;
     height: 120px;
-    margin-top: 56px;
+    margin-bottom: 304px;
     position: relative;
 }
 
@@ -118,17 +138,22 @@ body {
 
 .drawing .human {
     display: none;
-    height: 300px;
     position: absolute;
-    top: 20px; left: 50%;
+    top: 50%;
+    left: 255px;
+    transform: translateY(calc(-50% - 7px));
+    -webkit-transform: translateY(calc(-50% - 7px));
+    -moz-transform: translateY(calc(-50% - 7px));
+    -ms-transform: translateY(calc(-50% - 7px));
+    -o-transform: translateY(calc(-50% - 7px));
 }
 
 .drawing .human .head {
     height: 70px;
     width: 70px;
     background-color: #e9e9e9;
-    margin: 90px 0 0 -10px;
     border: 3px solid #000;
+    margin-left: calc(50% - 34px);
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -140,11 +165,12 @@ body {
     height: 160px;
     width: 3px;
     background-color: #000;
-    margin-left: 23px;
+    margin-left: 50%;
 }
 
 .drawing .human .hands {
-    position: relative
+    margin-left: 2px;
+    position: relative;
 }
 
 .drawing .human .hands .right-hand {
@@ -154,7 +180,7 @@ body {
     height: 3px;
     background-color: #000;
     top: 30px;
-    left: 23px;
+    left: 50%;
     transform: rotate(-5deg);
     -webkit-transform: rotate(-5deg);
     -moz-transform: rotate(-5deg);
@@ -184,7 +210,7 @@ body {
     height: 3px;
     background-color: #000;
     top: 30px;
-    right: 34px;
+    right: 50%;
     transform: rotate(5deg);
     -webkit-transform: rotate(5deg);
     -moz-transform: rotate(5deg);
@@ -209,6 +235,7 @@ body {
 
 .drawing .human .legs {
     position: relative;
+    height: 50px;
 }
 
 .drawing .human .legs::before {
@@ -218,7 +245,7 @@ body {
     height: 3px;
     background-color: #000;
     top: 18px;
-    left: 17px;
+    left: calc(50% - 7px);
     transform: rotate(40deg);
     -webkit-transform: rotate(40deg);
     -moz-transform: rotate(40deg);
@@ -233,7 +260,7 @@ body {
     height: 3px;
     background-color: #000;
     top: 18px;
-    right: 27px;
+    right: calc(50% - 10px);
     transform: rotate(-40deg);
     -webkit-transform: rotate(-40deg);
     -moz-transform: rotate(-40deg);
@@ -252,8 +279,8 @@ body {
 }
 
 .letters span {
-    height: 30px;
-    width: 30px;
+    height: 20px;
+    width: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -261,7 +288,7 @@ body {
     font-weight: bold;
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
-    padding: 30px;
+    padding: 25px;
     background-color: #2227F0;
     color: #fff;
     cursor: pointer;
@@ -270,10 +297,21 @@ body {
     -moz-transition: 0.2s;
     -ms-transition: 0.2s;
     -o-transition: 0.2s;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 }
 
 .letters span:hover {
     background-color: #CD23FA;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.3);
+    -webkit-transform: scale(1.3);
+    -moz-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    -o-transform: scale(1.3);
 }
 
 .letters span.disabled {
@@ -303,7 +341,6 @@ body {
 }
 
 .attempts .spans span {
-    background-color: #00d812;
     height: 20px;
     width: 100px;
     transform: skewX(-30deg);
@@ -311,11 +348,37 @@ body {
     -moz-transform: skewX(-30deg);
     -ms-transform: skewX(-30deg);
     -o-transform: skewX(-30deg);
+    position: relative;
+}
+
+.attempts .spans span::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #00d812;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
 }
 
 .attempts .spans span.disabled {
     background-color: #ff0000;
 }
+
+.attempts .spans span.disabled::after {
+    opacity: 0;
+    transform: translateY(-200%);
+    -webkit-transform: translateY(-200%);
+    -moz-transform: translateY(-200%);
+    -ms-transform: translateY(-200%);
+    -o-transform: translateY(-200%);
+}
+
 .guessed {
     background-color: #8a2be2;
     max-width: 1200px;
