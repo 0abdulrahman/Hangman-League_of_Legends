@@ -49,8 +49,7 @@ async function classes() {
     guessedSpans = document.querySelectorAll('.guessed span');
     // Assigning the word to the answer span as an answer
     answerSpan.appendChild(document.createTextNode(`The champion is ${champion}`));
-    console.log(category, champion, Math.floor(Math.random() * data[category].length));
-
+    // console.log(category, champion, Math.floor(Math.random() * data[category].length));
 }
 
 classes();
