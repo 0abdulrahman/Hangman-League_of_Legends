@@ -92,8 +92,9 @@ body {
 
 .game-content {
     display: flex;
-    flex-wrap: wrap;
-    max-width: 840px;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1187px;
     height: calc(100vh - 229px);
     padding: 0 0 20px 0;
 }
@@ -286,10 +287,6 @@ body {
     -moz-transform: rotate(-40deg);
     -ms-transform: rotate(-40deg);
     -o-transform: rotate(-40deg);
-}
-
-.game-info {
-    align-self: flex-end;
 }
 
 .letters {
@@ -658,6 +655,9 @@ body {
     .game-content {
         height: calc(100vh - 209px);
         gap: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
     }
     .class p {
         font-size: 20px;
