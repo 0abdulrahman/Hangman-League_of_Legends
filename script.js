@@ -1,7 +1,7 @@
 const enLetters = "qwertyuiopasdfghjklzxcvbnm\'.&";
 const lettersContainer = document.querySelector('.letters');
 const guessed = document.querySelector('.guessed');
-const categorySpan = document.querySelector('.status p span');
+const categorySpan = document.querySelector('.class span');
 const drawing = document.querySelector('.drawing');
 const loseAlert = document.querySelector('.lose-alert');
 const loseAlertBtn = document.querySelector('.lose-alert button');
@@ -63,7 +63,7 @@ Array.from(enLetters).forEach((letter) => {
 // Adding an event listener to the letters container that only fires if the clicked element is its children (letters spans)
 lettersContainer.addEventListener('click', (e) => {
     if (e.target !== lettersContainer) {
-        const champArr = Array.from(champion);
+        let champArr = Array.from(champion);
         let exists = false;
         let victory = false;
         // Checking if the clicked letters exists in the word to append it to the appropirate span
@@ -90,10 +90,15 @@ lettersContainer.addEventListener('click', (e) => {
         }
         // On lose, display the lose overlay after 0.5s
         if(attempts === 0) {
-            setTimeout(() => {
+            setTimeout(async function() {
+                const clearChamp = champion.match(/\w+/gi).join('').toLowerCase()
+                const championBG = `./Assets/champions/${clearChamp}`;
+
                 loseAlert.style.display = 'flex';
                 document.querySelector('.lose-alert p').after(answerSpan);
                 document.querySelector('.container').classList.add('lose-alert-bg');
+                document.querySelector('.container .game-content').style.display = 'none';
+                document.querySelector('.lose-alert-bg').style.cssText = `background: url(${championBG}.jpg); background-repeat: no-repeat; background-size: cover; background-position: center`;
                 lose.load();
                 lose.play();
             }, 500);
@@ -109,9 +114,14 @@ lettersContainer.addEventListener('click', (e) => {
         }
         // On victory, display the win overlay after 0.5s
         if(victory) {
-            setTimeout(() => {
+            setTimeout(async function() {
+                const clearChamp = champion.match(/\w+/gi).join('').toLowerCase()
+                const championBG = `./Assets/champions/${clearChamp}`;
+
                 winAlert.style.display = 'flex';
                 document.querySelector('.container').classList.add('win-alert-bg');
+                document.querySelector('.container .game-content').style.display = 'none';
+                document.querySelector('.win-alert-bg').style.cssText = `background: url(${championBG}.jpg); background-repeat: no-repeat; background-size: cover; background-position: center`;
                 win.load();
                 win.play();
             }, 500)
